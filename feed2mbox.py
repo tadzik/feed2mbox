@@ -41,6 +41,9 @@ for key in data: # iterating through feed list
 			                                 localtime())
 			print "From: "+feed.feed.title.encode('utf-8')
 			print "Date: "+entry.updated
+			if hasattr(entry, 'summary_detail'):
+				if hasattr(entry.summary_detail, 'type'):
+					print "Content-Type: "+entry.summary_detail.type
 			print "Subject: "+entry.title.encode('utf-8')
 			if hasattr(entry, 'summary'):
 				print entry.summary.encode('utf-8')
